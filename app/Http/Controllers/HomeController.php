@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Meow;
 
 class HomeController extends Controller
 {
     public function show(): string
     {
-        return view('homepage');
+        $meow = new Meow;
+        $meow->content = 'Hello, world!';
+
+        $meow->save();
+
+        return $meow->id . ' ' . $meow->content . ' ' . $meow->created_at . ' ' . $meow->updated_at;
+
+//        return view('homepage');
     }
 }
