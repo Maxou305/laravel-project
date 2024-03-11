@@ -1,3 +1,3 @@
 <div>
-    <!-- Well begun is half done. - Aristotle -->
+    <h1>Detail du MIAOU numéro {{$id}}</h1>
 </div>

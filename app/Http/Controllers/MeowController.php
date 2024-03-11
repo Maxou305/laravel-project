@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class MeowController extends Controller
 {
     public function show(): string
     {
-        return 'Liste des messages';
+        return view('meows-list');
     }
 
     public function showOne(string $id): string
     {
-        return 'Un message ' . $id;
+        return view('meow-detail', ['id' => $id]);
     }
 }
