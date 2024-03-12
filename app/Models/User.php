@@ -14,6 +14,11 @@ class User extends Model
 
     public function comments(): HasMany
     {
+        return $this->hasMany(Comment::class);
+    }
+    public function meows(): HasMany
+    {
         return $this->hasMany(Meow::class);
     }
+
 }

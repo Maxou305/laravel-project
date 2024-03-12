@@ -18,11 +18,8 @@ class MeowFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->uuid(),
             'content' => fake()->sentence(10),
             'user_id' => DB::table('users')->inRandomOrder()->first()->id,
-            'created_at' => now(),
-            'updated_at' => now()
         ];
     }
 }

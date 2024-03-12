@@ -18,11 +18,9 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->uuid(),
             'content' => fake()->sentence(10),
             'meow_id' => DB::table('meows')->inRandomOrder()->first()->id,
-            'created_at' => now(),
-            'updated_at' => now()
+            'user_id' => DB::table('users')->inRandomOrder()->first()->id,
         ];
     }
 }

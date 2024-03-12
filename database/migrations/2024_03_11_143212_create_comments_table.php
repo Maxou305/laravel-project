@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('content', 300);
 
             $table->foreignUuid('meow_id')->constrained('meows');
+            $table->foreignUuid('user_id')->constrained('users');
 
             $table->timestamps();
         });
