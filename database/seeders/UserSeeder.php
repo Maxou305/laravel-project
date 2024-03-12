@@ -2,16 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Meow;
+use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MeowSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Meow::factory()->count(100)->create();
+        User::factory()->count(20)->create();
     }
 }

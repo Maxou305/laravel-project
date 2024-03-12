@@ -13,6 +13,9 @@ return new class extends Migration {
         Schema::create('meows', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('content', 300);
+
+            $table->foreignUuid('user_id')->constrained('users');
+
             $table->timestamps();
         });
     }
