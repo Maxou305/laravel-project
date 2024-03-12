@@ -12,6 +12,6 @@ class MeowSeeder extends Seeder
      */
     public function run(): void
     {
-        Meow::factory()->count(100)->create();
+        Meow::factory()->count(500)->create();
     }
 }

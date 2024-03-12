@@ -1,3 +1,8 @@
 <div>
-   <h1>Liste des messages OMG CA MARCHE</h1>
+    <h1>Meows List</h1>
+    <ul>
+        @foreach ($meows as $meow)
+            <li>{{ $meow->content }}</li>
+        @endforeach
+    </ul>
 </div>
