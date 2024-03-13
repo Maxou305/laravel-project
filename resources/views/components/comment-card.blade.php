@@ -3,5 +3,5 @@
     <div class="card-body">
         <p class="card-text">{{$comment->content}}</p>
     </div>
-    <div class="blockquote-footer fst-italic mt-1">{{$comment->created_at}}></div>
+    <div class="blockquote-footer fst-italic mt-1">{{$comment->created_at}}</div>
 </div>
