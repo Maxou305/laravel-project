@@ -6,8 +6,12 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">{{ $meow->content}}</h5>
-        @foreach($meow->comments as $comment)
-            <p class="card-text">{{ $comment->content }} - {{ $comment->user->name }}</p>
-        @endforeach
+        @if($meow->comments->count() > 0)
+            @foreach($meow->comments as $comment)
+                <p class="card-text">{{ $comment->content }} - {{ $comment->user->name }}</p>
+            @endforeach
+        @else
+            <p class="card-text">No comments yet</p>
+        @endif
     </div>
 </div>
