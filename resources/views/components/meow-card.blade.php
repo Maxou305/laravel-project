@@ -11,7 +11,7 @@
                 <p class="card-text">{{ $comment->content }} - {{ $comment->user->name }}</p>
             @endforeach
         @else
-            <p class="card-text">No comments yet</p>
+            <p style="font-style: italic" class="card-text">No comment yet</p>
         @endif
     </div>
 </div>
