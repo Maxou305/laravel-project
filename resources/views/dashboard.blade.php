@@ -5,12 +5,13 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
+            <div style="padding: 20px; display: grid;
+                        grid-template-columns: repeat(1, 1fr); gap: 1rem; max-width: 1000px; margin: auto">
+                @foreach ($meows as $meow)
+                    <x-meow-card :meow="$meow"/>
+                @endforeach
             </div>
         </div>
     </div>
