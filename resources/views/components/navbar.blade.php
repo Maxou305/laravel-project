@@ -11,6 +11,9 @@
             <a class="nav-item nav-link" href="/meows">
                 <img style="width: 30px" src="https://cdn-icons-png.flaticon.com/512/1391/1391034.png" alt="Meows">
             </a>
+            <a class="nav-item nav-link" href="/dashboard">
+                <img style="width: 30px" src="https://cdn-icons-png.flaticon.com/512/1836/1836133.png" alt="New Meow">
+            </a>
         </div>
     </div>
 </nav>
