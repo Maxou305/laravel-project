@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeowController;
@@ -61,7 +62,9 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
     Route::get('/', [DashboardController::class, 'show']);
     Route::get('/meows', [MeowController::class, 'show'])->name('meows');
+
     Route::post('/meows', [MeowController::class, 'store']);
     Route::get('/meow/{id}', [MeowController::class, 'showOne']);
 
+    Route::post('/meow/comment', [CommentController::class, 'store']);
 });

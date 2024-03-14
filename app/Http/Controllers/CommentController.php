@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -27,9 +29,17 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+//        dump($request->all());
+
+        $comment = new Comment();
+        $comment->content = $request->input('content');
+        $comment->user_id = Auth::id();
+        $comment->meow_id = $request->input('meow_id');
+        $comment->save();
+
+        return redirect()->route('meows');
     }
 
     /**

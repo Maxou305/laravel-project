@@ -12,6 +12,8 @@ class Comment extends Model
     use HasFactory;
     use HasUuids;
 
+    public $fillable = ['content', 'meow_id', 'user_id'];
+
     public function meow(): BelongsTo
     {
         return $this->belongsTo(Meow::class);

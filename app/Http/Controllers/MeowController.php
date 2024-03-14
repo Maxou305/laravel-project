@@ -13,7 +13,7 @@ class MeowController extends Controller
     public function show(): string
     {
         $meows = Meow::with('comments')->get();
-        return view('meows-list', ['meows' => $meows]);
+        return view('dashboard', ['meows' => $meows]);
     }
 
     public function showOne(string $id): string
