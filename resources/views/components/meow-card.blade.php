@@ -10,9 +10,14 @@
         <div class="font-bold text-xl mb-2 justify-between flex flex-row"
              style="font-family: 'Comic Sans MS', serif">{{ $meow->content}}
             <div class="flex flex-row gap-2">
+
+
                 @if(Auth::user()->id === $meow->user_id)
-                    <x-secondary-button onClick="displayEditForm()" class="mt-2">Edit</x-secondary-button>
+                    <x-secondary-button onClick="displayEditMeowForm({{$meow->id}})" class="mt-2">Edit</x-secondary-button>
                 @endif
+
+
+
                 <form action="/delete/meow/{{$meow->id}}" method="POST">
                     @csrf
                     @Method('DELETE')
@@ -24,8 +29,7 @@
         </div>
     </div>
 
-
-    <div class="flex flex-row gap-4 w-full mb-4" id="edit-form" style="display: none">
+    <div class="flex flex-row gap-4 w-full mb-4" id="edit-meow-{{$meow->id}}" style="display: none">
         <x-input-edit-meow :meow="$meow"/>
     </div>
 
@@ -46,7 +50,8 @@
 </div>
 
 <script>
-    function displayEditForm() {
-        document.getElementById('edit-form').style.display = document.getElementById('edit-form').style.display === 'none' ? 'block' : 'none';
+    function displayEditMeowForm(id) {
+        let editMeow = document.getElementById('edit-meow-' + id);
+        editMeow.style.display = editMeow.style.display === 'none' ? 'block' : 'none';
     }
 </script>
