@@ -9,7 +9,6 @@ class DashboardController extends Controller
 {
     public function show(): string
     {
-        $meows = Meow::with('comments')->get();
-        return view('dashboard', ['meows' => $meows]);
+        return view('dashboard', ['meows' => Meow::orderBy('created_at', 'desc')->get()]);
     }
 }

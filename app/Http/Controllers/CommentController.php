@@ -29,14 +29,14 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
 //        dump($request->all());
 
         $comment = new Comment();
         $comment->content = $request->input('content');
-        $comment->user_id = Auth::id();
         $comment->meow_id = $request->input('meow_id');
+        $comment->user_id = Auth::id();
         $comment->save();
 
         return redirect()->route('meows');
@@ -69,8 +69,11 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy($id): RedirectResponse
     {
-        //
+        dump($id);
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect()->route('meows');
     }
 }
