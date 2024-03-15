@@ -69,5 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/meow/comment', [CommentController::class, 'store']);
     Route::delete('/delete/comment/{id}', [CommentController::class, 'destroy']);
     Route::delete('/delete/meow/{id}', [MeowController::class, 'destroy']);
+    Route::put('/update/meow/{id}', [MeowController::class, 'update']);
 
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\UpdateCommentRequest;
+use App\Models\Comment;
 use App\Models\Meow;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -39,8 +41,17 @@ class MeowController extends Controller
     public function destroy($id): RedirectResponse
     {
 //        dump($id);
+        Meow::destroy($id);
+        return redirect()->route('meows');
+    }
+
+    public function update(Request $request, string $id)
+    {
         $meow = Meow::find($id);
-        $meow->delete();
+        $meow->content = $request->input('content');
+
+        $meow->update();
+
         return redirect()->route('meows');
     }
 }

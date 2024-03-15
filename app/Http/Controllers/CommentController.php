@@ -72,8 +72,7 @@ class CommentController extends Controller
     public function destroy($id): RedirectResponse
     {
 //        dump($id);
-        $comment = Comment::find($id);
-        $comment->delete();
+        Comment::destroy($id);
         return redirect()->route('meows');
     }
 }
