@@ -1,4 +1,7 @@
-<div class=" rounded overflow-hidden shadow-lg bg-white">
+<form action="/delete/meow/{{$meow->id}}" method="POST"
+      class="rounded overflow-hidden shadow-lg bg-white">
+    @csrf
+    @Method('DELETE')
     <div class="px-6 py-4 gap-4 flex flex-col">
         <div class="flex flex-row gap-4">
             <img src="{{$meow->user->avatar}}" alt="meow icon"
@@ -7,8 +10,12 @@
                 {{ Str::upper($meow->user->name) }}
             </p>
         </div>
-        <div class="font-bold text-xl mb-2"
-             style="font-family: 'Comic Sans MS', serif">{{ $meow->content}}</div>
+        <div class="font-bold text-xl mb-2 justify-between flex flex-row"
+             style="font-family: 'Comic Sans MS', serif">{{ $meow->content}}
+            @if(Auth::user()->id === $meow->user_id)
+                <x-danger-button class="mt-2">Delete</x-danger-button>
+            @endif
+        </div>
         <span
             class="w-fit text-end inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{$meow->created_at}}</span>
         <div class="gap-2">
@@ -22,4 +29,4 @@
         </div>
         <x-input-new-comment :meow="$meow"/>
     </div>
-</div>
+</form>

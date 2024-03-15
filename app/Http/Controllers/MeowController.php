@@ -35,4 +35,12 @@ class MeowController extends Controller
 
         return redirect()->route('meows');
     }
+
+    public function destroy($id): RedirectResponse
+    {
+//        dump($id);
+        $meow = Meow::find($id);
+        $meow->delete();
+        return redirect()->route('meows');
+    }
 }
